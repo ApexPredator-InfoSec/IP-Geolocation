@@ -72,10 +72,10 @@ def main():
             for line in target_list.readlines(): #read each line
                 target = line.strip() #set target to current line CIDR notation IP block
                 print("\n[+]Fetching IP from CIDR notation....\n")
-                for ip in IPNetwork(args.cidr): #break CIDR notation down to individual IPs
-                    target = ip #set target to current IP from CIDR block
+                for ip in IPNetwork(target): #break CIDR notation down to individual IPs
+                    targetc = ip #set target to current IP from CIDR block
                     print("\n[+]Fetching IP from CIDR notation....\n")
-                    test_ip(target) #test current IP from CIDR block
+                    test_ip(targetc) #test current IP from CIDR block
     else:
         print("[-]Either -t, -f, -c, or -cf arguments are required\nusage: python3 ipgeoloc.py -t <target> -f <file contianing target list> -d\npython3 ipgeoloc.py -t 8.8.8.8 -d\npython3 ipgeoloc.py -f ips.txt\npython3 ipgeoloc.py -c 8.8.8.0/24\npython3 ipgeoloc.py -cf cips.txt") #print help message if neither -t or -f is passed
 
